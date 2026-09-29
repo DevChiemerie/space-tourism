@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 import techBgMobile from "@/public/technology/background-technology-mobile.jpg";
+import techBgTablet from "@/public/technology/background-technology-tablet.jpg";
 import launchVehiclePortrait from "@/public/technology/image-launch-vehicle-portrait.jpg";
 import spaceCapsulePortrait from "@/public/technology/image-space-capsule-portrait.jpg";
 import spaceportPortarit from "@/public/technology/image-spaceport-portrait.jpg";
@@ -43,10 +44,19 @@ export default function Technology() {
   const current = techSection[isActive];
   return (
     <>
-      <div className="fixed inset-0">
+      <div className="fixed inset-0 md:hidden">
         <Image
           className="priority object-cover object-center"
           src={techBgMobile}
+          fill
+          alt="Technology Background Image"
+          placeholder="blur"
+        />
+      </div>
+      <div className="fixed inset-0">
+        <Image
+          className="priority object-cover object-center"
+          src={techBgTablet}
           fill
           alt="Technology Background Image"
           placeholder="blur"
