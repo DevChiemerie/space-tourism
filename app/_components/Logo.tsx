@@ -7,15 +7,17 @@ import { useSidebar } from "../_context/SidebarContext";
 export default function Logo() {
   const { setIsOpen } = useSidebar();
   return (
-    <Link href="/" onClick={() => setIsOpen(false)}>
-      <div className=" relative mt-7 ml-7 h-12 w-12 flex">
-        <Image
-          className="object-cotain w-full h-full"
-          src="/logo.svg"
-          alt="Company's Logo"
-          fill
-        />
-      </div>
+    <Link
+      href="/"
+      onClick={() => setIsOpen(false)}
+      className="fixed top-0 mt-7 ml-7 block h-14 w-14"
+    >
+      <Image
+        className="object-cotain"
+        src="/logo.svg"
+        alt="Company's Logo"
+        fill
+      />
     </Link>
   );
 }

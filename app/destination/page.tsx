@@ -62,21 +62,35 @@ export default function Destination() {
           src={destinationBgMobile}
           fill
           alt="Destination Background Image"
+          placeholder="blur"
         />
       </div>
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 mt-40 min-h-screen">
         <p className="font-subheading text-lightblue mx-auto mt-10 text-center tracking-wider uppercase">
           <span className="mr-5 font-bold text-white opacity-25">01</span> Pick
           Your destination
         </p>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.name} // triggers exit/enter when this changes
-            initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        {/* initial: { opacity: 0, filter: "blur(12px)" },
+          animate: { opacity: 1, filter: "blur(0px)" },
+          exit: { opacity: 0, filter: "blur(12px)" }, */}
+
+        {/* initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -16, scale: 0.96 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            exit={{
+              opacity: 0,
+              y: -16,
+              scale: 0.96,
+            }} */}
+
+        <AnimatePresence mode="sync" initial={false}>
+          <motion.div
+            key={current.name}
+            initial={{ opacity: 0, filter: "blur(12px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, filter: "blur(12px)" }}
+            transition={{ duration: 1 }}
+            className="absolute min-h-screen"
           >
             <div>
               <div className="relative mx-auto mt-20 flex h-50 w-50 object-cover">
@@ -85,6 +99,7 @@ export default function Destination() {
                   fill
                   alt={`${current.name} Image`}
                   className="h-full w-full"
+                  placeholder="blur"
                 />
               </div>
               <nav>
@@ -105,7 +120,7 @@ export default function Destination() {
                 {current.name}
               </h1>
 
-              <p className="font-body text-lightblue mx-3 mt-7 text-center text-base leading-8 text-wrap">
+              <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap">
                 {current.description}
               </p>
 

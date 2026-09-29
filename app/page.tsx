@@ -16,14 +16,14 @@ export default function Home() {
           quality={80}
         />
       </div>
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 mt-40 min-h-screen">
         <p className="font-subheading text-lightblue mx-auto mt-10 text-center tracking-wider uppercase">
           So, you want to travel to
         </p>
         <h1 className="font-heading mt-10 text-center text-7xl tracking-wide text-white">
           SPACE
         </h1>
-        <p className="font-body text-lightblue mx-3 mt-7 text-center text-base leading-8 text-wrap">
+        <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap">
           Let&apos;s face it; if you want to go to space, you might as well
           genuinely go to outer space and not hover kind of on the edge of it.
           Well sit back, and relax because we&apos;ll give you a truly out of

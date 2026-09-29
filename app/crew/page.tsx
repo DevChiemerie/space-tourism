@@ -54,22 +54,24 @@ export default function Technology() {
           src={crewBgMobile}
           fill
           alt="Crew Background Image"
+          placeholder="blur"
         />
       </div>
 
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 mt-40 min-h-screen">
         <p className="font-subheading text-lightblue mx-auto mt-10 text-center tracking-wider uppercase">
           <span className="mr-5 font-bold text-white opacity-25">02</span> Pick
           Meet Your Crew
         </p>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={current.name} // triggers exit/enter when this changes
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.96 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute min-h-screen"
           >
             <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40">
               {current.title}
@@ -78,7 +80,7 @@ export default function Technology() {
             <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase">
               {current.name}
             </h2>
-            <p className="font-body text-lightblue mx-3 mt-7 text-center text-base leading-8 text-wrap">
+            <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap">
               {current.description}
             </p>
 
@@ -100,6 +102,7 @@ export default function Technology() {
                 width="100"
                 height="100"
                 quality={80}
+                placeholder="blur"
               />
               <div className="to-darkblue pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-linear-to-b from-transparent" />
             </div>

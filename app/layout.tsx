@@ -58,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Logo />
               <Sidebar links={navLinks} />
             </nav>
+
             {children}
           </main>
         </SidebarProvider>
