@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 import destinationBgMobile from "@/public/destination/background-destination-mobile.jpg";
+import destinationBgTablet from "@/public/destination/background-destination-tablet.jpg";
 import moon from "@/public/destination/image-moon.png";
 import mars from "@/public/destination/image-mars.png";
 import titan from "@/public/destination/image-titan.png";
@@ -55,8 +56,7 @@ export default function Destination() {
 
   return (
     <>
-      {/* className=" fixed inset-0 z-0 min-h-screen" */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 md:hidden">
         <Image
           className="object-cover object-center"
           src={destinationBgMobile}
@@ -65,25 +65,22 @@ export default function Destination() {
           placeholder="blur"
         />
       </div>
+      <div className="fixed inset-0 z-0">
+        <Image
+          className="object-cover object-center"
+          src={destinationBgTablet}
+          fill
+          alt="Destination Background Image"
+          placeholder="blur"
+        />
+      </div>
       <div className="relative z-10 mt-40 min-h-screen">
-        <p className="font-subheading text-lightblue mx-auto mt-10 text-center tracking-wider uppercase">
+        <p className="font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:mr-36">
           <span className="mr-5 font-bold text-white opacity-25">01</span> Pick
           Your destination
         </p>
 
-        {/* initial: { opacity: 0, filter: "blur(12px)" },
-          animate: { opacity: 1, filter: "blur(0px)" },
-          exit: { opacity: 0, filter: "blur(12px)" }, */}
-
-        {/* initial={{ opacity: 0, y: 16, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{
-              opacity: 0,
-              y: -16,
-              scale: 0.96,
-            }} */}
-
-        <AnimatePresence mode="sync" initial={false}>
+        <AnimatePresence mode="sync">
           <motion.div
             key={current.name}
             initial={{ opacity: 0, filter: "blur(12px)" }}
@@ -93,7 +90,7 @@ export default function Destination() {
             className="absolute min-h-screen"
           >
             <div>
-              <div className="relative mx-auto mt-20 flex h-50 w-50 object-cover">
+              <div className="relative mx-auto mt-20 flex h-50 w-50 object-cover md:mt-28 md:h-80 md:w-80">
                 <Image
                   src={current.image}
                   fill
@@ -103,12 +100,12 @@ export default function Destination() {
                 />
               </div>
               <nav>
-                <ul className="mt-20 flex justify-center gap-12">
+                <ul className="mt-20 flex justify-center gap-12 md:mt-28">
                   {destinations.map((dest, i) => (
                     <li
                       key={dest.name}
                       onClick={() => setIsActive(i)}
-                      className={`font-subheading cursor-pointer text-xl text-white uppercase transition-opacity ${i === isActive ? "border-b-2 border-white opacity-100" : "border-transparent opacity-50 hover:opacity-100"}`}
+                      className={`font-subheading cursor-pointer text-xl text-white uppercase transition-opacity md:text-3xl ${i === isActive ? "border-b-2 border-white opacity-100" : "border-transparent opacity-50 hover:opacity-100"}`}
                     >
                       {dest.name}
                     </li>
@@ -116,31 +113,37 @@ export default function Destination() {
                 </ul>
               </nav>
 
-              <h1 className="font-heading mt-10 text-center text-6xl tracking-wide text-white uppercase">
+              <h1 className="font-heading mt-10 text-center text-6xl tracking-wide text-white uppercase md:mt-28 md:text-8xl">
                 {current.name}
               </h1>
 
-              <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap">
+              <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-xl md:leading-11">
                 {current.description}
               </p>
 
-              <hr className="mx-auto mt-5 w-5/6 border-white/50" />
+              <hr className="mx-auto mt-5 w-5/6 border-white/50 md:mt-8" />
 
-              <p className="font-subheading text-lightblue mt-5 text-center text-xs tracking-wider uppercase">
-                Avg. Distance
-              </p>
+              <div className="md:flex md:justify-center md:gap-14">
+                <div>
+                  <p className="font-subheading text-lightblue mt-5 text-center text-xs tracking-wider uppercase md:mt-7 md:text-lg">
+                    Avg. Distance
+                  </p>
 
-              <p className="font-heading mt-2.5 text-center text-2xl text-white">
-                {current.distance}
-              </p>
+                  <p className="font-heading mt-2.5 text-center text-2xl text-white md:mt-3 md:text-4xl">
+                    {current.distance}
+                  </p>
+                </div>
 
-              <p className="font-subheading text-lightblue mt-7 text-center text-xs tracking-wider uppercase">
-                Est. Travel Time
-              </p>
+                <div>
+                  <p className="font-subheading text-lightblue mt-7 text-center text-xs tracking-wider uppercase md:mt-7 md:text-lg">
+                    Est. Travel Time
+                  </p>
 
-              <p className="font-heading mt-2.5 mb-20 text-center text-xl text-white uppercase">
-                {current.travelTime}
-              </p>
+                  <p className="font-heading mt-2.5 mb-20 text-center text-xl text-white uppercase md:mt-3 md:text-4xl">
+                    {current.travelTime}
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>

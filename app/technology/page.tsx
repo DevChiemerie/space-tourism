@@ -54,12 +54,12 @@ export default function Technology() {
       </div>
 
       <div className="min-h-scree relative z-10 mt-40">
-        <p className="font-subheading text-lightblue mx-auto text-center tracking-wider uppercase">
+        <p className="md:text-fluid-subheading font-subheading text-lightblue mx-auto text-center tracking-wider uppercase md:mr-48 md:mb-14">
           <span className="mr-5 font-bold text-white opacity-25">03</span>Space
           Launch 101
         </p>
 
-        <AnimatePresence mode="sync" initial={false}>
+        <AnimatePresence mode="sync">
           <motion.div
             key={current.name}
             initial={{ opacity: 0, filter: "blur(12px)" }}
@@ -82,14 +82,14 @@ export default function Technology() {
             <div className="flex justify-center gap-10">
               {techSection.map((section, i) => (
                 <button
-                  className={`text-red h-20 w-20 rounded-full border border-white/50 bg-transparent hover:border-white ${
+                  className={`text-red h-10 w-10 rounded-full border border-white/50 bg-transparent hover:border-white md:h-20 md:w-20 ${
                     i === isActive && "text-darkblue border-white bg-white"
                   }`}
                   key={section.name}
                   onClick={() => setIsActive(i)}
                 >
                   <span
-                    className={`font-heading text-4xl ${
+                    className={`font-heading text-2xl md:text-4xl ${
                       i === isActive ? "text-darkblue font-bold" : "text-white"
                     }`}
                   >
@@ -99,15 +99,15 @@ export default function Technology() {
               ))}
             </div>
 
-            <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40">
+            <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:text-3xl">
               The Terminology
             </p>
 
-            <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase">
+            <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase md:text-5xl">
               {current.name}
             </h2>
 
-            <p className="font-body text-lightblue mx-6 mt-7 mb-12 text-center text-base leading-8 text-wrap">
+            <p className="font-body text-lightblue mx-6 mt-7 mb-12 text-center text-base leading-8 text-wrap md:mx-8 md:text-2xl md:leading-11">
               {current.description}
             </p>
           </motion.div>

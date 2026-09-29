@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-
 import Image from "next/image";
 
 import crewBgMobile from "@/public/crew/background-crew-mobile.jpg";
+import crewBgTablet from "@/public/crew/background-crew-tablet.jpg";
 import dogulas from "@/public/crew/image-douglas-hurley.png";
 import mark from "@/public/crew/image-mark-shuttleworth.png";
 import victor from "@/public/crew/image-victor-glover.png";
@@ -48,7 +48,7 @@ export default function Technology() {
 
   return (
     <>
-      <div className="fixed inset-0">
+      <div className="fixed inset-0 md:hidden">
         <Image
           className="priority object-cover object-center"
           src={crewBgMobile}
@@ -57,14 +57,23 @@ export default function Technology() {
           placeholder="blur"
         />
       </div>
+      <div className="fixed inset-0">
+        <Image
+          className="priority object-cover object-center"
+          src={crewBgTablet}
+          fill
+          alt="Crew Background Image"
+          placeholder="blur"
+        />
+      </div>
 
       <div className="relative z-10 mt-40 min-h-screen">
-        <p className="font-subheading text-lightblue mx-auto mt-10 text-center tracking-wider uppercase">
-          <span className="mr-5 font-bold text-white opacity-25">02</span> Pick
+        <p className="font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:mr-48 md:mb-14">
+          <span className="mr-5 font-bold text-white opacity-25">02</span>
           Meet Your Crew
         </p>
 
-        <AnimatePresence mode="sync" initial={false}>
+        <AnimatePresence mode="sync">
           <motion.div
             key={current.name} // triggers exit/enter when this changes
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
@@ -73,21 +82,21 @@ export default function Technology() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="absolute min-h-screen"
           >
-            <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40">
+            <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:mt-12 md:text-3xl">
               {current.title}
             </p>
 
-            <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase">
+            <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase md:mt-4 md:text-5xl">
               {current.name}
             </h2>
-            <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap">
+            <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-2xl md:leading-11">
               {current.description}
             </p>
 
             <div className="mt-20 mb-36 flex justify-center gap-10">
               {crewMember.map((crew, i) => (
                 <div
-                  className={`flex h-5 w-5 cursor-pointer flex-col items-center gap-10 justify-self-center rounded-full bg-white transition-opacity ${i === isActive ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
+                  className={`flex h-5 w-5 cursor-pointer flex-col items-center gap-10 justify-self-center rounded-full bg-white transition-opacity md:h-7 md:w-7 ${i === isActive ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
                   onClick={() => setIsActive(i)}
                   key={crew.name}
                 ></div>

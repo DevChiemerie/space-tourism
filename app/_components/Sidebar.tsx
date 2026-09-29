@@ -55,7 +55,7 @@ export default function Sidebar({ links = [] }: SidebarProps) {
 
       {/* Sidebar */}
       <aside
-        className={`bg-darkblue/95 text-lightblue fixed top-0 right-0 z-50 h-dvh w-3/4 transition-transform duration-500 ease-in-out md:hidden ${
+        className={`text-lightblue bg-sidebar/95 fixed top-0 right-0 z-50 h-dvh w-3/4 transition-transform duration-500 ease-in-out md:hidden ${
           isOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-auto translate-x-full"
@@ -83,7 +83,7 @@ export default function Sidebar({ links = [] }: SidebarProps) {
               key={link.href}
               href={link.href}
               onClick={handleClose}
-              className="font-subheading text-fluid-subheading tracking-widest uppercase"
+              className="font-subheading text-fluid-sidebar tracking-widest uppercase"
             >
               {link.label}
             </Link>

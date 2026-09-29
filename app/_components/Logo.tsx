@@ -10,7 +10,7 @@ export default function Logo() {
     <Link
       href="/"
       onClick={() => setIsOpen(false)}
-      className="fixed top-0 mt-7 ml-7 block h-14 w-14"
+      className="fixed top-0 mt-7 ml-7 block h-14 w-14 md:h-20 md:w-20"
     >
       <Image
         className="object-cotain"

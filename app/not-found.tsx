@@ -2,14 +2,11 @@ import Link from "next/link";
 
 function NotFound() {
   return (
-    <main className="text-center space-y-6 mt-4">
-      <h1 className="text-3xl font-semibold">
+    <main className="bg-darkblue flex min-h-screen flex-col items-center justify-center text-center">
+      <h1 className="font-heading text-lightblue/80 mb-20 p-8 text-2xl uppercase">
         This page could not be found :(
       </h1>
-      <Link
-        href="/"
-        className="inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg"
-      >
+      <Link href="/" className="bg-lightblue font-body p-6 text-lg">
         Go back home
       </Link>
     </main>
