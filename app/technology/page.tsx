@@ -126,11 +126,11 @@ export default function Technology() {
               </div>
 
               <div className="lgwide:flex-1 min-w-0">
-                <p className="lgwide:text-[clamp(1.5rem,2.6vw,3rem)] lgwide:mt-14 lgwide:text-left lgwide:pl-24 font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:text-3xl lg:mt-14 lg:text-5xl">
+                <p className="lgwide:text-[clamp(1.5rem,2.6vw,3rem)] lgwide:mt-14 lgwide:text-left lgwide:pl-14 font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:text-3xl lg:mt-14 lg:text-5xl">
                   The Terminology
                 </p>
 
-                <h2 className="lgwide:text-left lgwide:pl-24 lgwide:text-[clamp(2.25rem,4vw,4.5rem)] lgwide:mt-6 font-heading text-lightblue mt-2 text-center text-3xl uppercase md:text-5xl lg:mt-6 lg:text-7xl">
+                <h2 className="lgwide:text-left lgwide:pl-14 lgwide:text-[clamp(2.25rem,4vw,4.5rem)] lgwide:mt-6 font-heading text-lightblue mt-2 text-center text-3xl uppercase md:text-5xl lg:mt-6 lg:text-7xl">
                   {current.name}
                 </h2>
 
