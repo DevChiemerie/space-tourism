@@ -48,8 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body
-        // bg-darkblue
-        className={`relative min-h-screen antialiased ${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable}`}
+        className={`bg-darkblue relative min-h-screen antialiased ${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable}`}
       >
         <SidebarProvider>
           <main className="isolate z-10">

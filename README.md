@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Space Tourism
+
+A responsive space tourism website built as a multi-page frontend project. Explore the home, destination, crew, and technology sections through the site navigation, with page-specific imagery and interactive content selectors.
+
+## Features
+
+- Responsive layouts for mobile, tablet, and desktop screens
+- Four sections: Home, Destination, Crew, and Technology
+- Interactive destination, crew member, and technology selectors
+- Animated content transitions powered by Motion
+- Responsive backgrounds and imagery optimized with Next.js Image
+- Custom typography and styling with Tailwind CSS
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) 16 with the App Router
+- [React](https://react.dev/) 19 and TypeScript
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- [Motion](https://motion.dev/) for transitions
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
+
+- Node.js compatible with the installed Next.js version
+- npm
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser. The development server refreshes the page as you edit the source.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Start the production server after building. |
+| `npm run lint` | Run ESLint. |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/
+  _components/     Shared navigation, logo, and sidebar components
+  _context/        Sidebar state context
+  crew/            Crew page
+  destination/     Destination page
+  technology/      Technology page
+  globals.css      Tailwind theme and global styles
+  layout.tsx       Root layout, fonts, and shared navigation
+  page.tsx         Home page
+public/
+  crew/            Crew photos and responsive backgrounds
+  destination/     Destination images and responsive backgrounds
+  home/            Home page responsive backgrounds
+  technology/      Technology images and responsive backgrounds
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/` — Introduction to the space travel experience
+- `/destination` — Browse destinations and view travel details
+- `/crew` — Browse crew members and their biographies
+- `/technology` — Explore the technology used for the journey
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Page content and selectable items are defined in each route under `app/`.
+- Shared navigation and layout are in `app/_components/` and `app/layout.tsx`.
+- Theme colors, typography, breakpoints, and global styling are in `app/globals.css`.
+- Images and page backgrounds are organized by section under `public/`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Production
+
+Build and run the production version locally with:
+
+```bash
+npm run build
+npm run start
+```
+
+The project can be deployed to a Next.js-compatible hosting platform. See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for deployment options.

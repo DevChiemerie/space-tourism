@@ -25,4 +25,7 @@
 
   --breakpoint-sm: 450px;
   --breakpoint-md: 500px;
+  --breakpoint-lg: 850px;
+  --breakpoint-lgwide: 1000px;
+  --breakpoint-lgLine: 1320px;
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import crewBgMobile from "@/public/crew/background-crew-mobile.jpg";
 import crewBgTablet from "@/public/crew/background-crew-tablet.jpg";
+import crewBgDesktop from "@/public/crew/background-crew-desktop.jpg";
 import dogulas from "@/public/crew/image-douglas-hurley.png";
 import mark from "@/public/crew/image-mark-shuttleworth.png";
 import victor from "@/public/crew/image-victor-glover.png";
@@ -57,7 +58,7 @@ export default function Technology() {
           placeholder="blur"
         />
       </div>
-      <div className="fixed inset-0">
+      <div className="fixed inset-0 lg:hidden">
         <Image
           className="priority object-cover object-center"
           src={crewBgTablet}
@@ -66,9 +67,18 @@ export default function Technology() {
           placeholder="blur"
         />
       </div>
+      <div className="fixed inset-0">
+        <Image
+          className="priority object-cover object-center"
+          src={crewBgDesktop}
+          fill
+          alt="Crew Background Image"
+          placeholder="blur"
+        />
+      </div>
 
-      <div className="relative z-10 mt-40 min-h-screen">
-        <p className="font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:mr-48 md:mb-14">
+      <div className="relative z-10 mt-40 min-h-screen lg:mt-60">
+        <p className="lgwide:mbe-24 font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:mb-14 md:pl-10 md:text-left lg:text-5xl">
           <span className="mr-5 font-bold text-white opacity-25">02</span>
           Meet Your Crew
         </p>
@@ -82,38 +92,40 @@ export default function Technology() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="absolute min-h-screen"
           >
-            <p className="font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:mt-12 md:text-3xl">
-              {current.title}
-            </p>
+            <div className="lgwide:flex h-full">
+              <div className="min-w-0 flex-1">
+                <p className="lgwide:text-start lgwide:pl-10 font-heading mt-10 text-center text-xl tracking-wide text-white uppercase opacity-40 md:mt-12 md:text-3xl lg:mt-16 lg:text-5xl">
+                  {current.title}
+                </p>
 
-            <h2 className="font-heading text-lightblue mt-2 text-center text-3xl uppercase md:mt-4 md:text-5xl">
-              {current.name}
-            </h2>
-            <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-2xl md:leading-11">
-              {current.description}
-            </p>
+                <h2 className="lgwide:text-start lgwide:pl-10 font-heading text-lightblue mt-2 text-center text-3xl uppercase md:mt-4 md:text-5xl lg:mt-6 lg:text-6xl">
+                  {current.name}
+                </h2>
+                <p className="lgwide:text-start lgwide:pl-10 lgwide:mx-0 font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-2xl md:leading-11 lg:mx-10 lg:mt-16 lg:text-4xl lg:leading-16">
+                  {current.description}
+                </p>
 
-            <div className="mt-20 mb-36 flex justify-center gap-10">
-              {crewMember.map((crew, i) => (
-                <div
-                  className={`flex h-5 w-5 cursor-pointer flex-col items-center gap-10 justify-self-center rounded-full bg-white transition-opacity md:h-7 md:w-7 ${i === isActive ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
-                  onClick={() => setIsActive(i)}
-                  key={crew.name}
-                ></div>
-              ))}
-            </div>
+                <div className="lgwide:pl-10 lgwide:justify-self-start lgwide:mt-12 lgwide:mb-8 mt-20 mb-36 flex justify-center gap-10 lg:gap-14">
+                  {crewMember.map((crew, i) => (
+                    <div
+                      className={`lgwide:h-7 lgwide:w-7 flex h-5 w-5 cursor-pointer flex-col items-center gap-10 justify-self-center rounded-full bg-white transition-opacity md:h-7 md:w-7 lg:h-10 lg:w-10 ${i === isActive ? "opacity-100" : "opacity-25 hover:opacity-100"}`}
+                      onClick={() => setIsActive(i)}
+                      key={crew.name}
+                    ></div>
+                  ))}
+                </div>
+              </div>
 
-            <div className="relative mx-10 mt-10 mb-5 flex justify-center">
-              <Image
-                className="h-auto w-auto flex-1 object-cover"
-                src={current.image}
-                alt={`${current.name} Image`}
-                width="100"
-                height="100"
-                quality={80}
-                placeholder="blur"
-              />
-              <div className="to-darkblue pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-linear-to-b from-transparent" />
+              <div className="lgwide:flex-col lgwide:mb-0 lgwide:mt-48 relative mx-10 mt-10 mb-5 flex shrink-0 justify-center lg:mt-16 lg:mb-2">
+                <Image
+                  className="lgwide:max-h-[75vh] lgwide:w-[clamp(12rem,35vw,40rem)] lgwide:h-full h-auto w-auto flex-1 object-contain"
+                  src={current.image}
+                  alt={`${current.name} Image`}
+
+                  placeholder="empty"
+                />
+                <div className="to-darkblue lgwide:h-24 pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-linear-to-b from-transparent" />
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>

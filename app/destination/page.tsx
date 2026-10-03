@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 import destinationBgMobile from "@/public/destination/background-destination-mobile.jpg";
 import destinationBgTablet from "@/public/destination/background-destination-tablet.jpg";
+import destinationBgDesktop from "@/public/destination/background-destination-desktop.jpg";
 import moon from "@/public/destination/image-moon.png";
 import mars from "@/public/destination/image-mars.png";
 import titan from "@/public/destination/image-titan.png";
@@ -65,7 +66,7 @@ export default function Destination() {
           placeholder="blur"
         />
       </div>
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 lg:hidden">
         <Image
           className="object-cover object-center"
           src={destinationBgTablet}
@@ -74,8 +75,17 @@ export default function Destination() {
           placeholder="blur"
         />
       </div>
-      <div className="relative z-10 mt-40 min-h-screen">
-        <p className="font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:mr-36">
+      <div className="fixed inset-0 z-0">
+        <Image
+          className="object-cover object-center"
+          src={destinationBgDesktop}
+          fill
+          alt="Destination Background Image"
+          placeholder="blur"
+        />
+      </div>
+      <div className="relative z-10 mt-40 min-h-screen lg:mt-60">
+        <p className="font-subheading text-lightblue md:text-fluid-subheading mx-auto mt-10 text-center tracking-wider uppercase md:pl-10 md:text-left lg:text-5xl">
           <span className="mr-5 font-bold text-white opacity-25">01</span> Pick
           Your destination
         </p>
@@ -89,59 +99,61 @@ export default function Destination() {
             transition={{ duration: 1 }}
             className="absolute min-h-screen"
           >
-            <div>
-              <div className="relative mx-auto mt-20 flex h-50 w-50 object-cover md:mt-28 md:h-80 md:w-80">
+            <div className="lgwide:flex lg:gap-[clamp(2rem,15vw,5rem)]">
+              <div className="lgwide:mx-10 lgwide:self-start lgwide:mt-56 relative mx-auto mt-20 aspect-square w-[clamp(12rem,35vw,35rem)] shrink-0 md:mt-28">
                 <Image
                   src={current.image}
                   fill
                   alt={`${current.name} Image`}
                   className="h-full w-full"
-                  placeholder="blur"
+                  placeholder="empty"
                 />
               </div>
-              <nav>
-                <ul className="mt-20 flex justify-center gap-12 md:mt-28">
-                  {destinations.map((dest, i) => (
-                    <li
-                      key={dest.name}
-                      onClick={() => setIsActive(i)}
-                      className={`font-subheading cursor-pointer text-xl text-white uppercase transition-opacity md:text-3xl ${i === isActive ? "border-b-2 border-white opacity-100" : "border-transparent opacity-50 hover:opacity-100"}`}
-                    >
-                      {dest.name}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <div className="lgwide:items-start lgwide:justify-items-start">
+                <nav>
+                  <ul className="mt-20 flex justify-center gap-12 md:mt-28 lg:mt-32">
+                    {destinations.map((dest, i) => (
+                      <li
+                        key={dest.name}
+                        onClick={() => setIsActive(i)}
+                        className={`font-subheading cursor-pointer text-xl text-white uppercase transition-opacity md:text-3xl lg:text-5xl ${i === isActive ? "border-b-2 border-white opacity-100" : "border-transparent opacity-50 hover:opacity-100"}`}
+                      >
+                        {dest.name}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
 
-              <h1 className="font-heading mt-10 text-center text-6xl tracking-wide text-white uppercase md:mt-28 md:text-8xl">
-                {current.name}
-              </h1>
+                <h1 className="font-heading z-0 mt-10 text-center text-6xl tracking-wide text-white uppercase md:mt-28 md:text-8xl lg:mt-32 lg:text-9xl">
+                  {current.name}
+                </h1>
 
-              <p className="font-body text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-xl md:leading-11">
-                {current.description}
-              </p>
+                <p className="font-body lgwide:text-start lgwide:mx-0 text-lightblue mx-6 mt-7 text-center text-base leading-8 text-wrap md:mx-8 md:text-xl md:leading-11 lg:mx-10 lg:text-4xl lg:leading-16">
+                  {current.description}
+                </p>
 
-              <hr className="mx-auto mt-5 w-5/6 border-white/50 md:mt-8" />
+                <hr className="lgwide:mx-0 mx-auto mt-5 w-5/6 border-white/50 md:mt-8 lg:mt-12 lg:border-2" />
 
-              <div className="md:flex md:justify-center md:gap-14">
-                <div>
-                  <p className="font-subheading text-lightblue mt-5 text-center text-xs tracking-wider uppercase md:mt-7 md:text-lg">
-                    Avg. Distance
-                  </p>
+                <div className="lgwide:mx-0 md:mt-7 md:flex md:justify-center md:gap-14 lg:mt-10 lg:gap-[clamp(2rem,15vw,35rem)]">
+                  <div>
+                    <p className="font-subheading text-lightblue mt-5 text-center text-xs tracking-wider uppercase md:text-lg lg:text-2xl">
+                      Avg. Distance
+                    </p>
 
-                  <p className="font-heading mt-2.5 text-center text-2xl text-white md:mt-3 md:text-4xl">
-                    {current.distance}
-                  </p>
-                </div>
+                    <p className="font-heading mt-2.5 text-center text-2xl text-white md:mt-3 md:text-4xl lg:text-5xl">
+                      {current.distance}
+                    </p>
+                  </div>
 
-                <div>
-                  <p className="font-subheading text-lightblue mt-7 text-center text-xs tracking-wider uppercase md:mt-7 md:text-lg">
-                    Est. Travel Time
-                  </p>
+                  <div>
+                    <p className="font-subheading text-lightblue mt-5 text-center text-xs tracking-wider uppercase md:text-lg lg:text-2xl">
+                      Est. Travel Time
+                    </p>
 
-                  <p className="font-heading mt-2.5 mb-20 text-center text-xl text-white uppercase md:mt-3 md:text-4xl">
-                    {current.travelTime}
-                  </p>
+                    <p className="font-heading mt-2.5 mb-20 text-center text-2xl text-white uppercase md:mt-3 md:text-4xl lg:text-5xl">
+                      {current.travelTime}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
